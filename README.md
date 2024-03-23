@@ -4,7 +4,12 @@
 - user: admin
 - password: admin
 
-## Versiones:
+## Docker:
+- Nombre de contenedor: dockerprueba
+- correr contenedor: docker run -p 8000:8000 dockerprueba
+
+
+## Versiones dentro del contenedor:
 
 - asgiref==3.7.2
 - backports.zoneinfo==0.2.1
@@ -44,14 +49,48 @@
   }
 
 ### 3) Realizar Operaciones CRUD a los Modelos Solicitados:
+
 - **URL:** localhost:8000/clientes
+- - **Campos:**
+  ```json
+  {
+    "documento": "ingrese nmero de identificacion",
+    "nombre": "ingrese nombre",
+    "apellido": "ingrese apellido",
+    "email": "correo electronico"
+  }
+  
 - **URL:** localhost:8000/facturas
+- - **Campos:**
+  ```json
+  {
+    "cliente": "ingrese id del cliente",
+    "nombre_compañia": "ingrese nombre de la compañia",
+    "nit": "ingreso nit de la compañia",
+    "code": "ingrese codigo"
+  }
+  
 - **URL:** localhost:8000/productos
+- - **Campos:**
+  ```json
+  {
+    "producto": "ingrese nombre de producto",
+    "description": "descripcion del producto"
+  }
+  
 - **URL:** localhost:8000/productosFactura
+- - **Campos:**
+  ```json
+  {
+    "producto": "ingrese id del producto",
+    "factura": "ingrese id de la factura",
+    "cantidad": "ingrese cantidad"
+  }
 
   
 ### 4) Descargar Archivo CSV de los Clientes Registrados:
 - **URL:** localhost:8000/descargar-csv
+- se descarga automaticamente archivo con los clientes registrados
 
 ### 5) Cargar Archivo CSV para el modelo clientes:
 - **URL:** localhost:8000/cargar-csv-clientes
