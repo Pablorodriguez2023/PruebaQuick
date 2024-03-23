@@ -1,6 +1,9 @@
 import requests
 
-def cargar_csv(url_api, ruta_archivo_csv):
+import requests
+
+def cargar_csv(url_api):
+    ruta_archivo_csv = input("Ingrese la ruta completa del archivo CSV: ")
     try:
         with open(ruta_archivo_csv, 'rb') as archivo:
             archivos = {'archivo_csv': archivo}
@@ -16,10 +19,8 @@ if __name__ == "__main__":
     # URL de tu API de Django Rest Framework para cargar CSV
     url_api = 'http://localhost:8000/cargar-csv-clientes'
 
-    # Ruta al archivo CSV que deseas cargar
-    ruta_archivo_csv = '/home/pablo/Descargas/clientes.csv'
+    cargar_csv(url_api)
 
-    cargar_csv(url_api, ruta_archivo_csv)
     
     
 
